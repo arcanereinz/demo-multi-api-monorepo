@@ -6,15 +6,16 @@ Resources:
       EndpointConfiguration:
         Types:
           - REGIONAL
-      RegionalCertificateArn: !Ref ApiCertificate
-  ApiCertificate:
-    Type: AWS::CertificateManager::Certificate
-    Properties:
-      DomainName: !Ref EnvConfigdomainAsString
-      DomainValidationOptions:
-        - DomainName: !Ref EnvConfigdomainAsString
-          ValidationDomain: !Ref EnvConfigvalidationDomainAsString
-      ValidationMethod: EMAIL
+      RegionalCertificateArn: arn:aws:acm:us-west-2:937845247459:certificate/43d82c5f-9f67-41b5-a1d8-74ad763beadf
+      # RegionalCertificateArn: !Ref ApiCertificate
+  # ApiCertificate:
+  #   Type: AWS::CertificateManager::Certificate
+  #   Properties:
+  #     DomainName: !Ref EnvConfigdomainAsString
+  #     DomainValidationOptions:
+  #       - DomainName: !Ref EnvConfigdomainAsString
+  #         ValidationDomain: !Ref EnvConfigvalidationDomainAsString
+  #     ValidationMethod: EMAIL
   ApiUsersPathMapping:
     Type: AWS::ApiGateway::BasePathMapping
     Properties:

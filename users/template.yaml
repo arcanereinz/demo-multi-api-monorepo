@@ -71,6 +71,9 @@ Resources:
             Path: /{id}
             Method: GET
             RestApiId: !Ref Api
+      Environment:
+        Variables:
+          DOMAIN: !Ref EnvConfigdomainAsString
 Parameters:
   StackTagName:
     Type: String
@@ -81,6 +84,9 @@ Parameters:
   EnvironmentAPIGatewayStageName:
     Type: String
     Description: Environment name used for API Gateway Stage names (injected by Stackery at deployment time)
+  EnvConfigdomainAsString:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /<EnvironmentName>/domain
 Outputs:
   RestApiId:
     Description: Users API Gateway Rest API ID
@@ -92,3 +98,6 @@ Outputs:
     Value: !Ref EnvironmentAPIGatewayStageName
     Export:
       Name: !Sub Users-${EnvironmentTagName}-StageName
+Metadata:
+  EnvConfigParameters:
+    EnvConfigdomainAsString: domain

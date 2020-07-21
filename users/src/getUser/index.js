@@ -5,7 +5,11 @@ exports.handler = async (event, context) => {
     return {
         statusCode: 200,
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ source: 'users', event }),
+        body: JSON.stringify({
+            source: 'users', // users specific output
+            event,
+            domain: process.env.DOMAIN,
+        }),
         isBase64Encoded: false,
     };
 };

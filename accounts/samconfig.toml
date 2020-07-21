@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "sam-accounts"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1w2jug55smjyz"
+s3_prefix = "sam-accounts"
+region = "us-west-2"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "StackTagName=\"sam-accounts\" EnvironmentTagName=\"qa\" EnvironmentAPIGatewayStageName=\"ga\""
